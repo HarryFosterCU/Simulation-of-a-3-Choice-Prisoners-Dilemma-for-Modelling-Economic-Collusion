@@ -48,7 +48,7 @@ def Two_Tit(Play_Hist): #Defects if opponent defects twice in a row
     else:
         return(0)
 
-def Giga_Grudger(Play_Hist): #If opponent defects, report
+def Big_Grudger(Play_Hist): #If opponent defects, report
     if len(Play_Hist) < 2:
         return(0)
     elif Play_Hist[len(Play_Hist) - 1] == 2:
@@ -56,14 +56,14 @@ def Giga_Grudger(Play_Hist): #If opponent defects, report
     else:
         return(0)
 
-def Wierd(Play_Hist): #Play randomly until turn 8 when it reports for no reason
+def Random_Until_Seven(Play_Hist): #Play randomly until turn 8 when it reports for no reason
     if len(Play_Hist) == 7:
         return(2)
     else:
         return(random.choice([0, 1], p=(0.5, 0.5), size=(1))[0])
         
     
-def Tit_For_War(Play_Hist): #If opponent defects, defect and then report
+def Tit_For_Big_Tat(Play_Hist): #If opponent defects, defect and then report
     if len(Play_Hist) <= 2:
         return(0)
     elif Play_Hist[len(Play_Hist)-2] == 1:
@@ -110,7 +110,7 @@ def Lose_Your_Mind(Play_Hist): #Cooperate until turn 10, then defect twice and r
     else:
         return(0)
     
-def Advantage(Play_Hist): #Be nice on round 1 and every 3rd round. Otherwise, defect
+def Nice_Thrice_a_Year(Play_Hist): #Be nice on round 1 and every 3rd round. Otherwise, defect
     if len(Play_Hist)%3 == 0:
         return(0)
     else:
@@ -136,11 +136,11 @@ def Shameful(Play_Hist): #Defect until turn 5. Afterwards, report if they are be
 def Get_All_Strats():
     #Returns an array of all strategy functions
     return([Always_Coop, Always_Report, Always_Defect, Tit_For_Tat, Two_Tit_For_Tat, Three_Month,
-           Quick_Profit, Giga_Grudger, Wierd, Tit_For_War, Grudge, Fool_Me_Once, Patient_Grudger, Lose_Your_Mind, Advantage,
+           Quick_Profit, Big_Grudger, Random_Until_Seven, Tit_For_Big_Tat, Grudge, Fool_Me_Once, Patient_Grudger, Lose_Your_Mind, Nice_Thrice_a_Year,
            Shameful])
 
 def Get_All_Names():
     #Returns an array of all strategy names
     return(["Always Coop", "Always Report", "Always Defect", "Tit For Tat", "Two Tits For a Tat", "Three Month Plan", "Quick Profit",
-            "Giga Grudger", "Wierd", "Tit For Big Tat", "Grudger", "Fool Me Once", "Patient Grudger", "9 Month Plan",
+            "Big Grudger", "Random_Until_Seven", "Tit For Big Tat", "Grudger", "Fool Me Once", "Patient Grudger", "9 Month Plan",
             "Nice Thrice a Year", "Shameful"])
