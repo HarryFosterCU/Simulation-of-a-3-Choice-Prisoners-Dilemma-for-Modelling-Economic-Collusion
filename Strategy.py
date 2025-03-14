@@ -131,16 +131,46 @@ def Shameful(Play_Hist): #Defect until turn 5. Afterwards, report if they are be
             return(1)
     else:
         return(1)
+
+def Friendly(Play_Hist): #Cooperate until opponent has defected more than a third of rounds this game. Then report.
+    Times_Defected = 0
+    Times_Nice = 0
+    for i in Play_Hist:
+        if i == 0:
+            Times_Nice += 1
+        else:
+            Times_Defected += 1
+    if len(Play_Hist) >= 3:
+        if Times_Defected >= len(Play_Hist) % 3:
+            return(2)
+        else:
+            return(0)
+    else:
+        return(0)
+
+def Test_The_Waters(Play_Hist): #test the waters with an initial defect, and see what opponent responds with
+    if len(Play_Hist) == 0:
+        return(1)
+    elif len(Play_Hist) == 1:
+        return(0)
+    else:
+        if Play_Hist[len(Play_Hist) - 1] == 1:
+            if Play_Hist[len(Play_Hist) - 2] == 1:
+                return(2)
+            else:
+                return(0)
+        else:
+            return(1)
     
 
 def Get_All_Strats():
     #Returns an array of all strategy functions
     return([Always_Coop, Always_Report, Always_Defect, Tit_For_Tat, Two_Tit_For_Tat, Three_Month,
            Quick_Profit, Big_Grudger, Random_Until_Seven, Tit_For_Big_Tat, Grudge, Fool_Me_Once, Patient_Grudger, Lose_Your_Mind, Nice_Thrice_a_Year,
-           Shameful])
+           Shameful, Friendly, Test_The_Waters])
 
 def Get_All_Names():
     #Returns an array of all strategy names
     return(["Always Coop", "Always Report", "Always Defect", "Tit For Tat", "Two Tits For a Tat", "Three Month Plan", "Quick Profit",
-            "Big Grudger", "Random_Until_Seven", "Tit For Big Tat", "Grudger", "Fool Me Once", "Patient Grudger", "9 Month Plan",
-            "Nice Thrice a Year", "Shameful"])
+            "Big Grudger", "Random Until Seven", "Tit For Big Tat", "Grudger", "Fool Me Once", "Patient Grudger", "9 Month Plan",
+            "Nice Thrice a Year", "Shameful", "Friendly But Cautious", "Test the Waters"])
