@@ -110,7 +110,7 @@ def Lose_Your_Mind(Play_Hist): #Cooperate until turn 10, then defect twice and r
     else:
         return(0)
     
-def Nice_Thrice_a_Year(Play_Hist): #Be nice on round 1 and every 3rd round. Otherwise, defect
+def Nice_Every_Third(Play_Hist): #Be nice on round 1 and every 3rd round. Otherwise, defect
     if len(Play_Hist)%3 == 0:
         return(0)
     else:
@@ -166,11 +166,11 @@ def Test_The_Waters(Play_Hist): #test the waters with an initial defect, and see
 def Get_All_Strats():
     #Returns an array of all strategy functions
     return([Always_Coop, Always_Report, Always_Defect, Tit_For_Tat, Two_Tit_For_Tat, Three_Month,
-           Quick_Profit, Big_Grudger, Random_Until_Seven, Tit_For_Big_Tat, Grudge, Fool_Me_Once, Patient_Grudger, Lose_Your_Mind, Nice_Thrice_a_Year,
+           Quick_Profit, Big_Grudger, Random_Until_Seven, Tit_For_Big_Tat, Grudge, Fool_Me_Once, Patient_Grudger, Lose_Your_Mind, Nice_Every_Third,
            Shameful, Friendly, Test_The_Waters])
 
 def Get_All_Names():
     #Returns an array of all strategy names
     return(["Always Coop", "Always Report", "Always Defect", "Tit For Tat", "Two Tits For a Tat", "Three Month Plan", "Quick Profit",
             "Big Grudger", "Random Until Seven", "Tit For Big Tat", "Grudger", "Fool Me Once", "Patient Grudger", "9 Month Plan",
-            "Nice Thrice a Year", "Shameful", "Friendly But Cautious", "Test the Waters"])
+            "Nice Once a Quarter", "Shameful", "Friendly But Cautious", "Test the Waters"])
