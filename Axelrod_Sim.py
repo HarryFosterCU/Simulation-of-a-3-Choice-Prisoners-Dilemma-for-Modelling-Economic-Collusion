@@ -58,9 +58,9 @@ def Full_Game(Time, Payoff_Matrix):
     Final_Profit = dict(sorted(Final_Profit.items(), key=lambda item: item[1], reverse=True))
     return(Final_Profit, H2H)
 
-def Show_Player_Scores(Payoff_Matrix):
+def Show_Player_Scores(Time, Payoff_Matrix):
     #displays the scores of each group.
-    Sim_Results = Full_Game(Payoff_Matrix)
+    Sim_Results = Full_Game(Time, Payoff_Matrix)
     for (x,y) in Sim_Results[0].items():
         print(x, y)
     print(Sim_Results[1])
