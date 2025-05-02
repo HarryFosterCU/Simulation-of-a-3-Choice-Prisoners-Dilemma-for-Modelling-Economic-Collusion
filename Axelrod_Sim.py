@@ -63,4 +63,3 @@ def Show_Player_Scores(Time, Payoff_Matrix):
     Sim_Results = Full_Game(Time, Payoff_Matrix)
     for (x,y) in Sim_Results[0].items():
         print(x, y)
-    print(Sim_Results[1])
